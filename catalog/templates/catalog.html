@@ -1,0 +1,6 @@
+<h2>Categories</h2>
+{% for cat in category_list %}
+
+<a href='{{url_for('itemsOfCategory', category_name=cat.name)}}'>{{cat.name}}</a><br>
+
+{% endfor %}
