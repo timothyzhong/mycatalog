@@ -55,8 +55,8 @@ class Item(Base):
         }
 
 
-engine = create_engine('sqlite:///catalog.db')
-
+# engine = create_engine('sqlite:///catalog.db')
+engine = create_engine('postgresql://student:XUEsheng987@localhost/catalog')
 
 # Base.metadata.drop_all(engine)    # use when schema is changed
 Base.metadata.create_all(engine)
