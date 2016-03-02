@@ -10,7 +10,7 @@ Base = declarative_base()
 
 
 class User(Base):
-    __tablename__ = 'user'
+    __tablename__ = 'app_user'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(80), nullable=False)
@@ -19,7 +19,7 @@ class User(Base):
 
 
 class Category(Base):
-    __tablename__ = 'category'
+    __tablename__ = 'app_category'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(80), nullable=False, unique=True)
@@ -35,7 +35,7 @@ class Category(Base):
 
 
 class Item(Base):
-    __tablename__ = 'item'
+    __tablename__ = 'app_item'
 
     name = Column(String(80), nullable=False)
     id = Column(Integer, primary_key=True)
