@@ -28,7 +28,8 @@ UPLOAD_FOLDER = '/vagrant/catalog/catalog/static/images'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # setup for using database
-engine = create_engine('sqlite:///catalog.db')
+# engine = create_engine('sqlite:///catalog.db')
+engine = create_engine('postgresql://student:XUEsheng987@localhost/catalog')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -537,4 +538,3 @@ def disconnect():
         flash("You were not logged in")
         print "not logged in"
         return redirect('catalog')
-
