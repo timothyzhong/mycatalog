@@ -23,7 +23,7 @@ class Category(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(80), nullable=False, unique=True)
-    user_id = Column(Integer, ForeignKey('user.id'))
+    user_id = Column(Integer, ForeignKey('app_user.id'))
     user = relationship(User)
 
     @property
@@ -41,9 +41,9 @@ class Item(Base):
     id = Column(Integer, primary_key=True)
     description = Column(String(1000), nullable=False)
     image = Column(String(200),nullable=True)
-    category_id = Column(Integer, ForeignKey('category.id'))
+    category_id = Column(Integer, ForeignKey('app_category.id'))
     category = relationship(Category)
-    user_id = Column(Integer, ForeignKey('user.id'))
+    user_id = Column(Integer, ForeignKey('app_user.id'))
     user = relationship(User)
 
     @property
