@@ -5,7 +5,8 @@ from sqlalchemy.orm import sessionmaker
 from database_setup import Base, User, Category, Item
 DIR = "/vagrant/catalog/catalog/static/images"
 
-engine = create_engine('sqlite:///catalog.db')
+# engine = create_engine('sqlite:///catalog.db')
+engine = create_engine('postgresql://student:XUEsheng987@localhost/catalog')
 
 Base.metadata.bind = engine
 
@@ -59,4 +60,3 @@ session.add(item2)
 session.add(item3)
 # Save to database
 session.commit()
-
