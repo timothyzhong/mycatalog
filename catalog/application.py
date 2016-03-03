@@ -25,7 +25,7 @@ CLIENT_SECRETS_FILE = '/var/www/catalog/catalog/client_secrets.json'
 FB_SECRETS_FILE = '/var/www/catalog/catalog/fb_client_secrets.json'
 
 CLIENT_ID = json.loads(
-    open(CLIENT_SECRETS, 'r').read())['web']['client_id']
+    open(CLIENT_SECRETS_FILE, 'r').read())['web']['client_id']
 APPLICATION_NAME = "Catalog App"
 UPLOAD_FOLDER = '/var/www/catalog/catalog/static/images'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
