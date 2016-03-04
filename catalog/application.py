@@ -92,6 +92,7 @@ def upload_file():
     """Handle upload requests"""
     if request.method == 'POST':
         file = request.files['file']
+        print 'uploading to %s ' % (app.config['UPLOAD_FOLDER']+filename)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
