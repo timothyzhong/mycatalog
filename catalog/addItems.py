@@ -3,7 +3,7 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, User, Category, Item
-DIR = "/vagrant/catalog/catalog/static/images"
+DIR = "/var/www/catalog/catalog/static/images"
 
 # engine = create_engine('sqlite:///catalog.db')
 engine = create_engine('postgresql://student:XUEsheng987@localhost/catalog')
