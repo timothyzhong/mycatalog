@@ -355,7 +355,7 @@ def gconnect():
         return response
 
     # Verify that the access token is valid for this app.
-    print 'issued_to: %s' % result['issued_to']
+    print 'aaa'
     if result['issued_to'] != CLIENT_ID:
         response = make_response(
             json.dumps("Token's client ID does not match app's."), 401)
