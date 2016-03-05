@@ -1,34 +1,57 @@
 Environment:
 SQLAlchemy, Python, Flask
 
+IP address: 52.25.117.98
+SSH port: 2200
+URL: http://ec2-52-25-117-98.us-west-2.compute.amazonaws.com/catalog/
+
+Software installed:
+psycopg2
+postgresql
+postgresql-server-9.3
+postgresql-server-dev-9.3
+python-dev
+Flask
+Flask-SQLAlchemy
+gclound-python
+google-api-python-client
+
+Configuration changes:
+Change ssh port to 2200
+Add user grader and mybackup
+Disable root user access
+Disable password authentication & only allow key-pair authentication
+Firewall only allow ssh and www
+/etc/apache2/sites-available/catalog.conf if configured to serve the app
+
 How to use:
-Please do steps 1~3 in /vagrant/catalog directory, otherwise the database
- can't setup correctly.
+Go to /var/www/catalog/catalog
 
 1. Setup the database with schema.
-   python catalog/database_setup.py
+   python database_setup.py
 
 2. Insert initial data into the database.
-   python catalog/addItems.py
+   python addItems.py
 
-3. Start the server.
-   python runserver.py
+3. Restart apache
+   sudo service apache2 restart
 
 4. Access the application through browser
+   use app address(IP or URL) to access
 
    Public pages:
-   Index page: http://localhost:8000/catalog
-   User login page: http://localhost:8000/login
-   JSON API: http://localhost:8000/catalog.json
-   View items of a category: http://localhost:8000/catalog/<category name>/items
-   View detail of an item: http://localhost:8000/catalog/<category name>/<item name>
+   Index page: <app_address>/catalog
+   User login page: <app_address>/login
+   JSON API: <app_address>/catalog.json
+   View items of a category: <app_address>/catalog/<category name>/items
+   View detail of an item: <app_address>/catalog/<category name>/<item name>
 
    User need to be logged in to access:
-   Add new item: http://localhost:8000/catalog/new
+   Add new item: <app_address>/catalog/new
 
    Only the user who created that item can access:
-   Edit an item: http://localhost:8000/catalog/<category name>/<item name>/edit
-   Delete an item: http://localhost:8000/catalog/category name/<item name>/delete
+   Edit an item: <app_address>/catalog/<category name>/<item name>/edit
+   Delete an item: <app_address>/catalog/<category name>/<item name>/delete
 
 User can browse items in different categories. Each item has a name, a
 paragraph of description, an optional image and belongs to one of the
